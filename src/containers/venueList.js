@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import Axios from 'axios'
 import Getvenues from '../actions'
+import VenueCard from '../component/venueCard'
 
 
 class VenueList extends Component {
@@ -20,7 +21,7 @@ class VenueList extends Component {
     render() {
         return (
             <div>
-                {console.log(this.props)}
+               <VenueCard />
             </div>
         )
     }
