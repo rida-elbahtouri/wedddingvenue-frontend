@@ -15,13 +15,21 @@ class VenueList extends Component {
     componentDidMount=()=>{
         const baseUrl = 'https://mighty-headland-70407.herokuapp.com/';
         Axios.get(`${baseUrl}/weddingvenues`).then(res => {
-            this.props.Getvenues(res.data)
+             this.props.Getvenues(res.data)
         });
+    }
+    renderHelper = ()=>{
+        console.log( this.props)
+        let result = this.props.venues.map(venue=>{
+            return (<VenueCard venue={venue} />)
+        })
+        return result
+        
     }
     render() {
         return (
             <div>
-               <VenueCard />
+               {this.renderHelper()}
             </div>
         )
     }
