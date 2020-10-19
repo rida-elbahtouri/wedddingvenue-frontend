@@ -6,7 +6,7 @@ import {
 import VenueList from '../containers/venueList';
 import VenueDetails from '../containers/venueDetails';
 import Nav from './nav'
-
+import Login from '../containers/Login'
 import Signup from '../containers/Signup'
 function App() {
   return (
@@ -16,6 +16,7 @@ function App() {
        <Switch>
           <Route exact path="/" component={VenueList} />
           <Route path="/signup" component={Signup} />
+          <Route path="/login" component={Login} />
           <Route path="/venue/:id/:name" component={VenueDetails} />
         </Switch>
        </Router>

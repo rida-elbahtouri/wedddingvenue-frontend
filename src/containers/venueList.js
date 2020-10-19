@@ -4,6 +4,7 @@ import Axios from 'axios'
 import Getvenues from '../actions'
 import VenueCard from '../component/venueCard'
 import loading from '../assets/giphy.gif'
+import { Redirect } from "react-router-dom";
 
 class VenueList extends Component {
     constructor(props) {
@@ -13,12 +14,18 @@ class VenueList extends Component {
         }
     }
     componentDidMount=()=>{
+      
+
         const baseUrl = 'https://mighty-headland-70407.herokuapp.com/';
         Axios.get(`${baseUrl}/weddingvenues`).then(res => {
              this.props.Getvenues(res.data)
         });
     }
     renderHelper = ()=>{
+        if (!localStorage.getItem('user_id')){
+            return <Redirect to='/signup' />
+        }
+
         let result = null
         if (this.props.venues.length > 0) {
              result = this.props.venues.map(venue=>{
