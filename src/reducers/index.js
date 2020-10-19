@@ -17,10 +17,19 @@ const UserReducer = (state = '', action) => {
       return state;
   }
 };
+const DetReducer = (state = [], action) => {
+  switch (action.type) {
+    case 'GETDETAILS':
+      return action.payload;
+    default:
+      return state;
+  }
+};
 
 const rootReducer = combineReducers({
     venues: VenuesReducer,
     user_id:UserReducer,
+    venue_details:DetReducer
 })
 
 

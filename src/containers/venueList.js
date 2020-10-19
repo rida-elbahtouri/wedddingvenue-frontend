@@ -25,6 +25,7 @@ class VenueList extends Component {
         if (!localStorage.getItem('user_id')){
             return <Redirect to='/signup' />
         }
+       
 
         let result = null
         if (this.props.venues.length > 0) {

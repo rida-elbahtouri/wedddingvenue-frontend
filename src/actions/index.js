@@ -8,5 +8,10 @@ export const UserID = userid=>({
     payload: userid,
 })
 
+export const GetDetails = det=>({
+    type: 'GETDETAILS',
+    payload: det,
+})
+
 
 export default Getvenues
