@@ -9,8 +9,18 @@ const VenuesReducer = (state = [], action) => {
   }
 };
 
+const UserReducer = (state = '', action) => {
+  switch (action.type) {
+    case 'GETUSERID':
+      return action.payload;
+    default:
+      return state;
+  }
+};
+
 const rootReducer = combineReducers({
     venues: VenuesReducer,
+    user_id:UserReducer,
 })
 
 

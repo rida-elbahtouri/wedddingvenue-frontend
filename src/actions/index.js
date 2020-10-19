@@ -3,4 +3,10 @@ const Getvenues = data=>({
     payload: data,
 })
 
+export const UserID = userid=>({
+    type: 'GETUSERID',
+    payload: userid,
+})
+
+
 export default Getvenues
