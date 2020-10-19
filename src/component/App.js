@@ -6,9 +6,12 @@ import {
 import VenueList from '../containers/venueList';
 import VenueDetails from '../containers/venueDetails';
 import Nav from './nav'
+
+import Signup from '../component/Signup'
 function App() {
   return (
     <div className="App">
+      <Signup />
        <Router>
        <Nav />
        <Switch>

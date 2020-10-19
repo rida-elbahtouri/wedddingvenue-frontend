@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import Axios from 'axios'
 import Getvenues from '../actions'
 import VenueCard from '../component/venueCard'
-
+import loading from '../assets/giphy.gif'
 
 class VenueList extends Component {
     constructor(props) {
@@ -19,10 +19,17 @@ class VenueList extends Component {
         });
     }
     renderHelper = ()=>{
-        console.log( this.props)
-        let result = this.props.venues.map(venue=>{
-            return (<VenueCard venue={venue} />)
-        })
+        let result = null
+        if (this.props.venues.length > 0) {
+             result = this.props.venues.map(venue=>{
+                        return (<VenueCard venue={venue} />)
+                    })
+        }else{
+            result = (
+                <img src={loading} alt="loading" />
+            )
+        }
+       
         return result
         
     }
