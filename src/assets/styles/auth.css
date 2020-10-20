@@ -1,0 +1,75 @@
+.auth-div {
+  background: url('https://images.unsplash.com/photo-1502635385003-ee1e6a1a742d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80'),
+    rgba(255, 255, 255, 0.568);
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  font-family: acumin-pro, 'Acumin Pro', 'Helvetica Neue', Helvetica, Arial,
+    sans-serif;
+}
+.auth-content {
+  position: absolute;
+  color: #585758;
+  width: 70%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  height: 70%;
+}
+.auth-content h1 {
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+.auth-content p {
+  width: 60%;
+  font-size: 14px;
+  margin: 0 auto 60px;
+}
+.auth-content input {
+  display: block;
+  width: 80%;
+  margin: 0 auto;
+  height: 40px;
+  border-radius: 20px;
+  border: 1px solid gray;
+  text-align: center;
+  font-size: 18px;
+}
+.auth-content input:focus {
+  border: 1px solid rgb(5, 238, 24);
+  border-radius: 20px;
+  outline: none;
+}
+.button {
+  display: inline-block;
+  background-color: #ec5200;
+  color: white;
+  font-size: 14px;
+  padding: 8px 25px;
+  margin-top: 20px;
+  border-radius: 20px;
+  border: 0;
+  border: 1px solid #ec5200;
+  cursor: pointer;
+  box-shadow: 0 0 3px 2px #ec5200;
+}
+.button:focus {
+  outline: none;
+}
+.button:hover {
+  border: 1px solid white;
+  background-color: white;
+  color: #ec5200;
+}
+.switch {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+}

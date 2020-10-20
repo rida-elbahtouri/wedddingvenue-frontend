@@ -1,13 +1,17 @@
 import React from 'react';
+
+
 import {
   BrowserRouter as Router, Route, Switch,
 } from 'react-router-dom';
 
 import VenueList from '../containers/venueList';
 import VenueDetails from '../containers/venueDetails';
-import Nav from './nav'
+import Nav from '../containers/nav'
 import Login from '../containers/Login'
 import Signup from '../containers/Signup'
+
+import '../assets/styles/base.css'
 function App() {
   return (
     <div className="App">
