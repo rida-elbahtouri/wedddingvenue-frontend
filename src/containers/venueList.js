@@ -43,7 +43,7 @@ class VenueList extends Component {
     }
     render() {
         return (
-            <div>
+            <div className="cardsList">
                {this.renderHelper()}
             </div>
         )
