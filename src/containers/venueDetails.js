@@ -47,7 +47,7 @@ Axios.get(`${baseUrl}/weddingvenues/${this.props.match.params.id}`).then(res => 
      render(){
          return (
      <div>
-         hello {  this.renderHelper()}
+        {  this.renderHelper()}
      </div>
     )
      }
