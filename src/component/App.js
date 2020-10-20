@@ -10,6 +10,7 @@ import VenueDetails from '../containers/venueDetails';
 import Nav from '../containers/nav'
 import Login from '../containers/Login'
 import Signup from '../containers/Signup'
+import Favourite from '../containers/Favourite'
 
 import '../assets/styles/base.css'
 function App() {
@@ -20,6 +21,7 @@ function App() {
        <Switch>
           <Route exact path="/" component={VenueList} />
           <Route path="/signup" component={Signup} />
+          <Route path='/favourite' component={Favourite} />
           <Route path="/login" component={Login} />
           <Route path="/venue/:id/:name" component={VenueDetails} />
         </Switch>

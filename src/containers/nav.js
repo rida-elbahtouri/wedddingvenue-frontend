@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import {connect} from 'react-redux'
 import { Redirect } from "react-router-dom";
 import {UserID} from '../actions'
+import '../assets/styles/nav.css'
  const Nav=(props)=> {
     if (localStorage.getItem('user_id')){
         props.UserID(parseInt(localStorage.getItem('user_id')))
@@ -15,17 +16,44 @@ import {UserID} from '../actions'
         localStorage.removeItem('user_id');
         props.UserID("")
      }
+
+     const close = ()=>{
+         const nav = document.getElementById("navbar")
+         nav.className="navbar"
+         nav.classList.add("hide")
+     }
+     const show =()=>{
+        const nav = document.getElementById("navbar")
+        nav.className="navbar"
+        nav.classList.add("left")
+     }
     return (
-        <div>
+        <nav>
+            <div className="nav">
+                <div onClick={show} className="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span className="last-bar"></span>
+                </div>
+            </div>
+        <div id="navbar" className="navbar hide">
+            <span onClick={close} className="close">X</span>
             <ul>
                 <li>
-                <Link to={'/'}>
+                <Link onClick={close} to={'/'}>
                     Home
-                    </Link>
-                    </li>
-                <li onClick={logout}>Log out</li>
+                </Link>  
+                
+                 </li>
+                 <li>
+                <Link onClick={close} to={'/favourite'}>
+                    Favourite
+                </Link>
+                 </li>
+                <li className="logout" onClick={logout}>Log out</li>
             </ul>
         </div>
+        </nav>
     )
 }
 const mapStateToProps = state => ({
