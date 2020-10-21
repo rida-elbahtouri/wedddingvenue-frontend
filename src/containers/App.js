@@ -7,20 +7,20 @@ import {
 
 import VenueList from './venueList';
 import VenueDetails from './venueDetails';
+import {Errors} from '../actions'
 import Nav from './nav'
 import Login from './Login'
 import Signup from './Signup'
 import Favourite from './Favourite'
-import Errors from '../component/errors'
+import ErrorsComp from '../component/errors'
 import '../assets/styles/base.css'
-function App({errors}) {
+function App(props) {
   const renderErrors = ()=>{
     
-    if(errors){
-        let errr= errors.map(err=>{
-      
-        return <Errors msg={err} />
-       
+    if(props.errors && props.errors[0] !==null){
+        let errr= props.errors.map(err=>{
+         setTimeout(()=>{props.Errors(null) ; }, 2000);
+        return <ErrorsComp msg={err} />
        })
        return errr
     }
@@ -48,4 +48,10 @@ function App({errors}) {
 const mapStateToProps = state => ({
   errors:state.errors
 });
-export default connect(mapStateToProps)(App);
+
+ const mapDispatchToProps = dispatch => ({
+   Errors:error=>{
+     dispatch(Errors(error))
+   },
+ });
+export default connect(mapStateToProps,mapDispatchToProps)(App);

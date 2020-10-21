@@ -1,7 +1,7 @@
 import React from 'react'
 import Axios from 'axios'
 import {connect} from 'react-redux'
-import {UserID} from '../actions'
+import {UserID,Errors} from '../actions'
 import { Redirect,Link } from "react-router-dom";
 import '../assets/styles/auth.css'
 const Signup=(props)=> {
@@ -19,7 +19,7 @@ const Signup=(props)=> {
                     props.UserID(response.data.id)
                     return <Redirect to='/' />
                }else {
-                props.UserID(response.data[0])
+                props.Errors(response.data)
                }
            }).catch(err => err);
     }
@@ -43,9 +43,12 @@ const mapStateToProps = state => ({
     user_id: state.user_id,
   });
 
-const mapDispatchToProps = dispatch => ({
+  const mapDispatchToProps = dispatch => ({
     UserID: data => {
       dispatch(UserID(data));
     },
+    Errors:error=>{
+      dispatch(Errors(error))
+    }
   });
 export default connect(mapStateToProps, mapDispatchToProps)(Signup);

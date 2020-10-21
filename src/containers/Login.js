@@ -16,12 +16,10 @@ const Login=(props)=> {
            .then(function (response) {
                 if(response.data.id){
                      localStorage.setItem('user_id',response.data.id );
-                     console.log(response)
                      props.UserID(response.data.id)
                      return <Redirect to='/' />
                 }else {
                   props.Errors(response.data)
-                 props.UserID(response.data[0])
                 }
            }).catch(err => err);
     }

@@ -28,7 +28,7 @@ const DetReducer = (state = [], action) => {
 const ErrorsReducer = (state = [],action)=>{
   switch (action.type) {
     case 'ERROR':
-      return [...state,action.payload];
+      return new Array(action.payload);
     default:
       return state;
   }
