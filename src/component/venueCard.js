@@ -3,8 +3,14 @@ import { Link } from 'react-router-dom';
 import addTofavourie from '../functions/addTofavourite'
 import '../assets/styles/card.css'
 
-export default function VenueCard({venue}) {
-    
+export default function VenueCard({venue,addedToFav}) {
+   
+    const addvavbutton=()=>{
+       if(!addedToFav){
+           return   <button className="btn" onClick={()=>{addTofavourie(1,venue.id)}}>Add to favourite</button>
+       }
+         
+    }
     return (
         
         
@@ -19,7 +25,7 @@ export default function VenueCard({venue}) {
                 
                    </div>
                    </Link>
-                   <button className="btn" onClick={()=>{addTofavourie(1,venue.id)}}>Add to favourite</button>
+                  {addvavbutton()}
                    </div>
          
        

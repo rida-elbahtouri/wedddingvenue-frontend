@@ -20,6 +20,8 @@ class VenueList extends Component {
         Axios.get(`${baseUrl}/weddingvenues`).then(res => {
              this.props.Getvenues(res.data)
         });
+
+
     }
     renderHelper = ()=>{
         if (!localStorage.getItem('user_id')){
@@ -30,7 +32,7 @@ class VenueList extends Component {
         let result = null
         if (this.props.venues.length > 0) {
              result = this.props.venues.map(venue=>{
-                        return (<VenueCard venue={venue} />)
+                        return (<VenueCard key={venue.id} venue={venue} />)
                     })
         }else{
             result = (
