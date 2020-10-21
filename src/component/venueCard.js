@@ -2,12 +2,15 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import addTofavourie from '../functions/addTofavourite'
 import '../assets/styles/card.css'
+import PropTypes from 'prop-types'
 
 export default function VenueCard({venue,addedToFav}) {
    
     const addvavbutton=()=>{
        if(!addedToFav){
-           return   <button className="btn" onClick={()=>{addTofavourie(1,venue.id)}}>Add to favourite</button>
+           return   <button className="btn" onClick={()=>{addTofavourie(
+            parseInt(localStorage.getItem('user_id'))
+            ,venue.id)}}>Add to favourite</button>
        }
          
     }
@@ -31,3 +34,17 @@ export default function VenueCard({venue,addedToFav}) {
        
     )
 }
+
+VenueCard.defaultProps = {
+    addedToFav:false
+  };
+VenueCard.propTypes = {
+    addedToFav: PropTypes.bool,
+    venue: PropTypes.shape({
+        id: PropTypes.number,
+        name: PropTypes.string.isRequired,
+        price: PropTypes.number.isRequired,
+        description:PropTypes.string.isRequired,
+        photo:PropTypes.string.isRequired,
+      }).isRequired,
+  };

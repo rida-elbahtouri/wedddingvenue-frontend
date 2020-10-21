@@ -3,8 +3,8 @@ import { Redirect} from "react-router-dom";
 import Axios from 'axios'
 import {connect} from 'react-redux'
 import {GetDetails} from '../actions'
-import loading from '../assets/giphy.gif'
 import addTofavourie from '../functions/addTofavourite'
+import PropTypes from 'prop-types'
 class VenueDetails extends Component {
     constructor(props) {
         super(props)
@@ -63,4 +63,23 @@ const mapStateToProps = state => ({
       dispatch(GetDetails(data));
     },
   });
+
+
+  VenueDetails.defaultProps = {
+    id: '',
+    name: '',
+    price: '',
+    description:'',
+    photo:'',
+  };
+  VenueDetails.propTypes = {
+    GetDetails:PropTypes.func.isRequired,
+    venueDetails:PropTypes.shape({
+        id: PropTypes.number,
+        name: PropTypes.string,
+        price: PropTypes.number,
+        description:PropTypes.string,
+        photo:PropTypes.string,
+      }).isRequired,
+  };
 export default connect(mapStateToProps, mapDispatchToProps)(VenueDetails);

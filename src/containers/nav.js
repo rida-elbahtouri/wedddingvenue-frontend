@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import { Redirect } from "react-router-dom";
 import {UserID} from '../actions'
 import '../assets/styles/nav.css'
+import PropTypes from 'prop-types'
  const Nav=(props)=> {
     if (localStorage.getItem('user_id')){
         props.UserID(parseInt(localStorage.getItem('user_id')))
@@ -65,4 +66,9 @@ const mapDispatchToProps = dispatch => ({
       dispatch(UserID(data));
     },
   });
+
+  Nav.propTypes = {
+    UserID:PropTypes.func.isRequired,
+    user_id:PropTypes.number.isRequired
+  };
 export default connect(mapStateToProps, mapDispatchToProps)(Nav);

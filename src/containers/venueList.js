@@ -5,7 +5,7 @@ import Getvenues from '../actions'
 import VenueCard from '../component/venueCard'
 import loading from '../assets/giphy.gif'
 import { Redirect } from "react-router-dom";
-
+import PropTypes from 'prop-types'
 class VenueList extends Component {
     constructor(props) {
         super(props)
@@ -60,4 +60,11 @@ const mapStateToProps = state => ({
       dispatch(Getvenues(data));
     },
   });
+
+  VenueList.propTypes = {
+  // eslint-disable-next-line
+  venues: PropTypes.array.isRequired,
+  Getvenues:PropTypes.func.isRequired
+
+  };
 export default connect(mapStateToProps, mapDispatchToProps)(VenueList);

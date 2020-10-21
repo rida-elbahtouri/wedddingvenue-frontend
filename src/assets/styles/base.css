@@ -21,7 +21,7 @@ body {
 .error-cont {
   background-color: rgb(236, 119, 99);
   border-radius: 10px;
-  animation-name: MoveToRight;
+  animation-name: MoveTobtoom;
   animation-duration: 0.2s;
 }
 .error {
@@ -30,7 +30,7 @@ body {
   font-size: 20px;
 }
 
-@keyframes MoveToRight {
+@keyframes MoveTobtoom {
   0% {
     opacity: 0;
     transform: translateY(-100px);

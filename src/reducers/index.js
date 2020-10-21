@@ -9,7 +9,7 @@ const VenuesReducer = (state = [], action) => {
   }
 };
 
-const UserReducer = (state = '', action) => {
+const UserReducer = (state = 0, action) => {
   switch (action.type) {
     case 'GETUSERID':
       return action.payload;
@@ -17,7 +17,7 @@ const UserReducer = (state = '', action) => {
       return state;
   }
 };
-const DetReducer = (state = [], action) => {
+const DetReducer = (state = {}, action) => {
   switch (action.type) {
     case 'GETDETAILS':
       return action.payload;

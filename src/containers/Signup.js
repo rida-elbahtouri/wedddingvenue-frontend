@@ -3,6 +3,7 @@ import Axios from 'axios'
 import {connect} from 'react-redux'
 import {UserID,Errors} from '../actions'
 import { Redirect,Link } from "react-router-dom";
+import PropTypes from 'prop-types'
 import '../assets/styles/auth.css'
 const Signup=(props)=> {
     if (localStorage.getItem('user_id')){
@@ -16,7 +17,7 @@ const Signup=(props)=> {
            .then(function (response) {
                if(response.data.id){
                     localStorage.setItem('user_id',response.data.id );
-                    props.UserID(response.data.id)
+                    props.UserID(parseInt(response.data.id))
                     return <Redirect to='/' />
                }else {
                 props.Errors(response.data)
@@ -51,4 +52,10 @@ const mapStateToProps = state => ({
       dispatch(Errors(error))
     }
   });
+
+  Signup.propTypes = {
+    Errors : PropTypes.func.isRequired,
+    UserID:PropTypes.func.isRequired,
+    user_id:PropTypes.number.isRequired
+  };
 export default connect(mapStateToProps, mapDispatchToProps)(Signup);

@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 import {
   BrowserRouter as Router, Route, Switch,
 } from 'react-router-dom';
-
+import PropTypes from 'prop-types'
 import VenueList from './venueList';
 import VenueDetails from './venueDetails';
 import {Errors} from '../actions'
@@ -14,12 +14,12 @@ import Signup from './Signup'
 import Favourite from './Favourite'
 import ErrorsComp from '../component/errors'
 import '../assets/styles/base.css'
-function App(props) {
+function App({errors,Errors}) {
   const renderErrors = ()=>{
     
-    if(props.errors && props.errors[0] !==null){
-        let errr= props.errors.map(err=>{
-         setTimeout(()=>{props.Errors(null) ; }, 2000);
+    if(errors && errors[0] !==null){
+        let errr= errors.map(err=>{
+         setTimeout(()=>{Errors(null) ; }, 2000);
         return <ErrorsComp msg={err} />
        })
        return errr
@@ -54,4 +54,9 @@ const mapStateToProps = state => ({
      dispatch(Errors(error))
    },
  });
+
+App.propTypes = {
+  errors: PropTypes.array.isRequired,
+  Errors : PropTypes.func.isRequired
+};
 export default connect(mapStateToProps,mapDispatchToProps)(App);
