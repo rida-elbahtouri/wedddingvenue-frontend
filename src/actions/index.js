@@ -13,5 +13,10 @@ export const GetDetails = det=>({
     payload: det,
 })
 
+export const Errors = error =>({
+    type: 'ERROR',
+    payload: error,
+})
+
 
 export default Getvenues
