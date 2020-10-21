@@ -2,6 +2,7 @@
   color: #6a6869;
   margin: 0;
 }
+
 .detimage {
   width: 100%;
 }
@@ -9,6 +10,7 @@
 .imgcont {
   position: relative;
 }
+
 .price {
   color: white;
   text-align: center;
@@ -20,6 +22,7 @@
   bottom: 5px;
   right: 10px;
 }
+
 .desc {
   color: #7a797a;
 }

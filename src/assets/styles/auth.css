@@ -1,5 +1,6 @@
 .auth-div {
-  background: linear-gradient(
+  background:
+    linear-gradient(
       to right,
       rgba(250, 250, 250, 0.384),
       rgba(255, 255, 255, 0.404)
@@ -12,9 +13,15 @@
   position: fixed;
   top: 0;
   left: 0;
-  font-family: acumin-pro, 'Acumin Pro', 'Helvetica Neue', Helvetica, Arial,
+  font-family:
+    acumin-pro,
+    'Acumin Pro',
+    'Helvetica Neue',
+    Helvetica,
+    Arial,
     sans-serif;
 }
+
 .auth-content {
   position: absolute;
   color: #585758;
@@ -25,15 +32,18 @@
   text-align: center;
   height: 70%;
 }
+
 .auth-content h1 {
   font-weight: 400;
   margin-bottom: 5px;
 }
+
 .auth-content p {
   width: 60%;
   font-size: 14px;
   margin: 0 auto 60px;
 }
+
 .auth-content input {
   display: block;
   width: 80%;
@@ -44,11 +54,13 @@
   text-align: center;
   font-size: 18px;
 }
+
 .auth-content input:focus {
   border: 1px solid rgb(5, 238, 24);
   border-radius: 20px;
   outline: none;
 }
+
 .button {
   display: inline-block;
   background-color: #ec5200;
@@ -62,14 +74,17 @@
   cursor: pointer;
   box-shadow: 0 0 3px 2px #ec5200;
 }
+
 .button:focus {
   outline: none;
 }
+
 .button:hover {
   border: 1px solid white;
   background-color: white;
   color: #ec5200;
 }
+
 .switch {
   position: absolute;
   color: black;
@@ -78,6 +93,7 @@
   transform: translateX(-50%);
   width: 80%;
 }
+
 .btn {
   width: 80%;
   background-color: #ec5200;
@@ -90,6 +106,7 @@
   cursor: pointer;
   margin-bottom: 2px;
 }
+
 .btn:hover {
   color: #ec5200;
   background-color: white;
