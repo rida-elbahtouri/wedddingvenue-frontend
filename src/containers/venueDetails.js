@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import { GetDetails } from '../actions';
 import addTofavourie from '../functions/addTofavourite';
 
+import '../assets/styles/details.css'
 class VenueDetails extends Component {
   constructor(props) {
     super(props);
@@ -35,22 +36,28 @@ class VenueDetails extends Component {
          const venue = venueDetails;
          return (
            <div>
-             <img src={venue.photo} alt={venue.name} />
-             <h2>
+             <div className="imgcont">
+             <img className="detimage" src={venue.photo} alt={venue.name} />
+             <h2 className="price">
+               {' '}
+               {venue.price} $
+               <br />per Day
+               {' '}
+             </h2>
+             </div>
+             <div className="det">
+             <h2 className="name">
                {' '}
                {venue.name}
                {' '}
              </h2>
-             <h2>
-               {' '}
-               {venue.price}
-               {' '}
-             </h2>
-             <p>
+          
+             <p className="desc">
                {venue.description}
                {' '}
              </p>
-             <button type="button" onClick={() => { addTofavourie(this.state.user_id, venue.id); }}> {// eslint-disable-line
+             </div>
+             <button className="btn" type="button" onClick={() => { addTofavourie(this.state.user_id, venue.id); }}> {// eslint-disable-line
              }
                Add to favourite
              </button>
