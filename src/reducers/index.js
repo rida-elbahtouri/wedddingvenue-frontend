@@ -25,20 +25,19 @@ const DetReducer = (state = {}, action) => {
       return state;
   }
 };
-const ErrorsReducer = (state = [],action)=>{
+const ErrorsReducer = (state = [], action) => {
   switch (action.type) {
     case 'ERROR':
       return new Array(action.payload);
     default:
       return state;
   }
-}
+};
 const rootReducer = combineReducers({
-    venues: VenuesReducer,
-    user_id:UserReducer,
-    venue_details:DetReducer,
-    errors:ErrorsReducer
-})
+  venues: VenuesReducer,
+  user_id: UserReducer,
+  venue_details: DetReducer,
+  errors: ErrorsReducer,
+});
 
-
-export default rootReducer
+export default rootReducer;
