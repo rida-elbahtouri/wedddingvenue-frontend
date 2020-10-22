@@ -33,6 +33,25 @@ body {
   font-size: 20px;
 }
 
+.cont {
+  margin-top: 52px;
+}
+
+@media only screen and (min-width: 700px) {
+  .cardsList {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  body {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .auth-div {
+    background-size: cover;
+  }
+}
+
 @keyframes MoveTobtoom {
   0% {
     opacity: 0;

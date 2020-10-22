@@ -29,13 +29,15 @@ function App({ errors, Errors }) {
         <div className="errors-container">
           {renderErrors()}
         </div>
-        <Switch>
+        <div className="cont">
+        <Switch >
           <Route exact path="/" component={VenueList} />
           <Route path="/signup" component={Signup} />
           <Route path="/favourite" component={Favourite} />
           <Route path="/login" component={Login} />
           <Route path="/venue/:id/:name" component={VenueDetails} />
         </Switch>
+        </div>
       </Router>
     </div>
   );

@@ -6,6 +6,7 @@
       rgba(255, 255, 255, 0.404)
     ),
     url('https://images.unsplash.com/photo-1502635385003-ee1e6a1a742d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80');
+  background-repeat: no-repeat;
   width: 100vw;
   height: 100vh;
   margin: 0;
