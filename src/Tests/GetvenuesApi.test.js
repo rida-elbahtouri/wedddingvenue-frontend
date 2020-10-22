@@ -58,8 +58,8 @@ describe('Api Response', () => {
         ]
 
 
-    api.GetVEnues.mockResolvedValue({ venues });
-    const VenuesApi = await api.GetVEnues();
+    GetVEnues.mockResolvedValue({ venues });
+    const VenuesApi = await GetVEnues();
     expect(VenuesApi).toEqual({ venues });
   })
 
