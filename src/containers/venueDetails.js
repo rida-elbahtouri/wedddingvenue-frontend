@@ -39,7 +39,7 @@ class VenueDetails extends Component {
            <div>
              <div className="imgcont">
                <img className="detimage" src={venue.photo} alt={venue.name} />
-               <h2 className="price">
+               <h2 className="detprice">
                  {' '}
                  {venue.price}
                  {' '}
@@ -50,7 +50,7 @@ class VenueDetails extends Component {
                </h2>
              </div>
              <div className="det">
-               <h2 className="name">
+               <h2 className="detname">
                  {' '}
                  {venue.name}
                  {' '}

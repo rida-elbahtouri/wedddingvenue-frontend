@@ -43,7 +43,6 @@ const Login = props => {
   );
 };
 
-
 const mapStateToProps = state => ({
   user_id: state.user_id,
 });

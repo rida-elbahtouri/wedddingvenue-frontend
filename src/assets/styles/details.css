@@ -1,4 +1,4 @@
-.name {
+.detname {
   color: #6a6869;
   margin: 0;
 }
@@ -11,7 +11,7 @@
   position: relative;
 }
 
-.price {
+.detprice {
   color: white;
   text-align: center;
   background-color: rgba(0, 0, 0, 0.3);

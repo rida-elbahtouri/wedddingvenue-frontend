@@ -18,8 +18,8 @@ import '../assets/styles/base.css';
 function App({ errors, Errors }) {
   const renderErrors = () => {// eslint-disable-line
     if (errors && errors !== null) {
-        setTimeout(() => { Errors(null); }, 2000);
-        return <ErrorsComp key={1} msg={errors} />;
+      setTimeout(() => { Errors(null); }, 2000);
+      return <ErrorsComp key={1} msg={errors} />;
     }
   };
   return (

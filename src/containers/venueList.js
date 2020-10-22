@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Getvenues from '../actions';
 import VenueCard from '../component/venueCard';
 import loading from '../assets/giphy.gif';
-import getvenuesApi from '../functions/GetvenuesApi'
+import getvenuesApi from '../functions/GetvenuesApi';
+
 class VenueList extends Component {
-    componentDidMount=async() => {
-      
+    componentDidMount=async () => {
       getvenuesApi().then(res => {
         const { Getvenues } = this.props;
         Getvenues(res.data);
