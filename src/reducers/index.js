@@ -25,10 +25,10 @@ const DetReducer = (state = {}, action) => {
       return state;
   }
 };
-const ErrorsReducer = (state = [], action) => {
+const ErrorsReducer = (state = '', action) => {
   switch (action.type) {
     case 'ERROR':
-      return new Array(action.payload);
+      return action.payload;
     default:
       return state;
   }

@@ -6,11 +6,11 @@ import PropTypes from 'prop-types';
 import Getvenues from '../actions';
 import VenueCard from '../component/venueCard';
 import loading from '../assets/giphy.gif';
-
+import getvenuesApi from '../functions/GetvenuesApi'
 class VenueList extends Component {
-    componentDidMount=() => {
-      const baseUrl = 'https://mighty-headland-70407.herokuapp.com/';
-      Axios.get(`${baseUrl}/weddingvenues`).then(res => {
+    componentDidMount=async() => {
+      
+      getvenuesApi().then(res => {
         const { Getvenues } = this.props;
         Getvenues(res.data);
       });

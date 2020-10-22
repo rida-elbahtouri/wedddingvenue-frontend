@@ -25,7 +25,7 @@ const VenueCard = ({ venue, addedToFav }) => {
   };
   return (
 
-    <div className="card">
+    <div data-testid={venue.id} className="card">
       <img src={venue.photo} alt={venue.name} />
       <Link to={`/venue/${venue.id}/${venue.name}`}>
         <div className="content">

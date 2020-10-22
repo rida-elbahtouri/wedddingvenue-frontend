@@ -43,6 +43,10 @@ const Signup = props => {
   );
 };
 
+const mapStateToProps = state => ({
+  user_id: state.user_id,
+});
+
 const mapDispatchToProps = dispatch => ({
   UserID: data => {
     dispatch(UserID(data));
@@ -56,4 +60,4 @@ Signup.propTypes = {
   Errors: PropTypes.func.isRequired,
   UserID: PropTypes.func.isRequired,
 };
-export default connect(null, mapDispatchToProps)(Signup);
+export default connect(mapStateToProps, mapDispatchToProps)(Signup);

@@ -17,12 +17,9 @@ import '../assets/styles/base.css';
 
 function App({ errors, Errors }) {
   const renderErrors = () => {// eslint-disable-line
-    if (errors && errors[0] !== null) {
-      const errr = errors.map(err => {
+    if (errors && errors !== null) {
         setTimeout(() => { Errors(null); }, 2000);
-        return <ErrorsComp key={err} msg={err} />;
-      });
-      return errr;
+        return <ErrorsComp key={1} msg={errors} />;
     }
   };
   return (
@@ -54,8 +51,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 App.propTypes = {
-  // eslint-disable-next-line
-  errors: PropTypes.array.isRequired,
+  errors: PropTypes.string.isRequired,
   Errors: PropTypes.func.isRequired,
 };
 export default connect(mapStateToProps, mapDispatchToProps)(App);
