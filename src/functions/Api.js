@@ -17,3 +17,8 @@ export const AddTofavourite = (UserID, VenueId) => {
     return Axios.get(`${baseUrl}/weddingvenues/${id}`)
 
 };
+export const GetfavouritesApi = (userid)=>{
+  return Axios.get(`${baseUrl}/favourites`, {
+    params: { id: parseInt(userid, 10) },
+  })
+}

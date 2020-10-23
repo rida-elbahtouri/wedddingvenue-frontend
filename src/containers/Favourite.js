@@ -5,13 +5,11 @@ import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Getvenues from '../actions';
 import VenueCard from '../component/venueCard';
-
+import {GetfavouritesApi} from '../functions/Api'
 class Favourite extends Component {
     componentDidMount=() => {
-      const baseUrl = 'https://mighty-headland-70407.herokuapp.com';
-      Axios.get(`${baseUrl}/favourites`, {
-        params: { id: parseInt(localStorage.getItem('user_id'), 10) },
-      }).then(res => {
+      
+      GetfavouritesApi(localStorage.getItem('user_id')).then(res => {
         const uniq = [...new Set(res.data.map(x => x.id))].map(
           id => res.data.find(s => s.id === id),
         );
