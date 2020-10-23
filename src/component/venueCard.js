@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import addTofavourie from '../functions/addTofavourite';
+import {AddTofavourite} from '../functions/Api';
 import '../assets/styles/card.css';
 
 const VenueCard = ({ venue, addedToFav }) => {
@@ -12,7 +12,7 @@ const VenueCard = ({ venue, addedToFav }) => {
           className="btn"
           type="button"
           onClick={() => {
-            addTofavourie(
+            AddTofavourite(
               parseInt(localStorage.getItem('user_id'), 10),
               venue.id,
             );

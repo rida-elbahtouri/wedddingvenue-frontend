@@ -5,11 +5,11 @@ import PropTypes from 'prop-types';
 import Getvenues from '../actions';
 import VenueCard from '../component/venueCard';
 import loading from '../assets/giphy.gif';
-import getvenuesApi from '../functions/GetvenuesApi';
+import {GetVenuesApi} from '../functions/Api';
 
 class VenueList extends Component {
     componentDidMount=async () => {
-      getvenuesApi().then(res => {
+      GetVenuesApi().then(res => {
         const { Getvenues } = this.props;
         Getvenues(res.data);
       });

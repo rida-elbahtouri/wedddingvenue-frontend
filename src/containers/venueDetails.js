@@ -4,8 +4,8 @@ import Axios from 'axios';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { GetDetails } from '../actions';
-import addTofavourie from '../functions/addTofavourite';
-
+import {AddTofavourite} from '../functions/Api';
+import {GetDetailsApi} from '../functions/Api'
 import '../assets/styles/details.css';
 
 class VenueDetails extends Component {
@@ -20,9 +20,8 @@ class VenueDetails extends Component {
       if (localStorage.getItem('user_id')) {
         this.setState({ user_id: parseInt(localStorage.getItem('user_id'), 10) });
       }
-      const baseUrl = 'https://mighty-headland-70407.herokuapp.com/';
       // eslint-disable-next-line
-      Axios.get(`${baseUrl}/weddingvenues/${this.props.match.params.id}`).then(res => {
+      GetDetailsApi(this.props.match.params.id).then(res => {
         const { GetDetails } = this.props;
         GetDetails(res.data);
       });
@@ -61,7 +60,7 @@ class VenueDetails extends Component {
                  {' '}
                </p>
              </div>
-             <button className="btn" type="button" onClick={() => { addTofavourie(this.state.user_id, venue.id); }}> {// eslint-disable-line
+             <button className="btn" type="button" onClick={() => { AddTofavourite(this.state.user_id, venue.id); }}> {// eslint-disable-line
              }
                Add to favourite
              </button>
