@@ -9,7 +9,7 @@ const VenuesReducer = (state = [], action) => {
   }
 };
 
-const UserReducer = (state ='', action) => {
+const UserReducer = (state = '', action) => {
   switch (action.type) {
     case 'GETUSERTOKEN':
       return action.payload;

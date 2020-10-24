@@ -1,25 +1,14 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import Axios from 'axios';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { GetDetails } from '../actions';
-import {AddTofavourite} from '../functions/Api';
-import {GetDetailsApi} from '../functions/Api'
+import { AddTofavourite, GetDetailsApi } from '../functions/Api';
+
 import '../assets/styles/details.css';
 
 class VenueDetails extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      token: null,
-    };
-  }
-
     componentDidMount=() => {
-      if (localStorage.getItem('token')) {
-        this.setState({ token: localStorage.getItem('token')});
-      }
       // eslint-disable-next-line
       GetDetailsApi(this.props.match.params.id).then(res => {
         const { GetDetails } = this.props;
@@ -60,7 +49,7 @@ class VenueDetails extends Component {
                  {' '}
                </p>
              </div>
-             <button className="btn" type="button" onClick={() => { AddTofavourite(this.state.user_id, venue.id); }}> {// eslint-disable-line
+             <button className="btn" type="button" onClick={() => { AddTofavourite(localStorage.getItem('token'), venue.id); }}> {// eslint-disable-line
              }
                Add to favourite
              </button>

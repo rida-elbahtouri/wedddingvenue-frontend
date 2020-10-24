@@ -17,14 +17,15 @@ const Login = props => {
 
     Axios.post('https://mighty-headland-70407.herokuapp.com/logs', {
       username: username.value,
-      password:password.value
+      password: password.value,
     })
       .then(response => {// eslint-disable-line
         if (response.data.token) {
           localStorage.setItem('token', response.data.token);
           props.UserToken(response.data.token);
+        } else {
+          props.Errors(response.data.error);
         }
-        props.Errors(response.data.error[0]);
       }).catch(err => err);
   };
   return (

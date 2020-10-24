@@ -1,4 +1,4 @@
-import Getvenues, { UserID, GetDetails, Errors } from '../actions';
+import Getvenues, { UserToken, GetDetails, Errors } from '../actions';
 
 describe('actions', () => {
   it('should get venues data', () => {
@@ -20,13 +20,13 @@ it('should get venue details', () => {
   expect(GetDetails(data)).toEqual(expectedAction);
 });
 
-it('should get userID', () => {
-  const data = { user_id: 2 };
+it('should get userToken', () => {
+  const data = { token: 'fghsfghsgh' };
   const expectedAction = {
-    type: 'GETUSERID',
+    type: 'GETUSERTOKEN',
     payload: data,
   };
-  expect(UserID(data)).toEqual(expectedAction);
+  expect(UserToken(data)).toEqual(expectedAction);
 });
 
 it('should get Errors', () => {

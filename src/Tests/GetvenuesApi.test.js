@@ -1,6 +1,6 @@
-import GetVEnues from '../functions/addTofavourite';
+import { GetVenuesApi } from '../functions/Api';
 
-jest.mock('../functions/addTofavourite');
+jest.mock('../functions/Api');
 
 describe('Api Response', () => {
   it('returns a list of venues', async () => {
@@ -57,8 +57,8 @@ describe('Api Response', () => {
       },
     ];
 
-    GetVEnues.mockResolvedValue({ venues });
-    const VenuesApi = await GetVEnues();
+    GetVenuesApi.mockResolvedValue({ venues });
+    const VenuesApi = await GetVenuesApi();
     expect(VenuesApi).toEqual({ venues });
   });
 });

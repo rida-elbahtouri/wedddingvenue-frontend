@@ -13,29 +13,26 @@ const Signup = props => {
   const signup = () => {
     const username = document.getElementById('username');
     const password = document.getElementById('password');
-    const password_con = document.getElementById('password2');
-    const passwordmatch = document.getElementById('passwordmatch')
-    passwordmatch.innerHTML=""
-    if (password.value !== password_con.value){
-      passwordmatch.innerHTML="passwords don't match"
-    }else{
-          Axios.post('https://mighty-headland-70407.herokuapp.com/users', {
-      username: username.value,
-      password:password.value,
-      password_confirmation:password_con.value
-    })
+    const passwordCon = document.getElementById('password2');
+    const passwordmatch = document.getElementById('passwordmatch');
+    passwordmatch.innerHTML = '';
+    if (password.value !== passwordCon.value) {
+      passwordmatch.innerHTML = "passwords don't match";
+    } else {
+      Axios.post('https://mighty-headland-70407.herokuapp.com/users', {
+        username: username.value,
+        password: password.value,
+        password_confirmation: passwordCon.value,
+      })
       .then(response => { // eslint-disable-line
-         if (response.data.token) {
-          localStorage.setItem('token', response.data.token);
-          props.UserToken( response.data.token);
-          
-         }else{
-          props.Errors(response.data.error[0]);
-         }
-         
-      }).catch(err => err);
+          if (response.data.token) {
+            localStorage.setItem('token', response.data.token);
+            props.UserToken(response.data.token);
+          } else {
+            props.Errors(response.data.error[0]);
+          }
+        }).catch(err => err);
     }
-
   };
   return (
     <div className="auth-div">
@@ -46,7 +43,7 @@ const Signup = props => {
           <input placeholder="username" id="username" type="text" />
           <br />
           <input placeholder="password" id="password" type="password" />
-          <p className="passwordMatchs" id="passwordmatch"></p>
+          <p className="passwordMatchs" id="passwordmatch" />
           <br />
           <input placeholder="password confirmation" id="password2" type="password" />
           <button onClick={signup} className="button" type="button">Sign up</button>

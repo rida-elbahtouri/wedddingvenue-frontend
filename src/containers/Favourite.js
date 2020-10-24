@@ -4,10 +4,10 @@ import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Getvenues from '../actions';
 import VenueCard from '../component/venueCard';
-import {GetfavouritesApi} from '../functions/Api'
+import { GetfavouritesApi } from '../functions/Api';
+
 class Favourite extends Component {
     componentDidMount=() => {
-      
       GetfavouritesApi(localStorage.getItem('token')).then(res => {
         const uniq = [...new Set(res.data.map(x => x.id))].map(
           id => res.data.find(s => s.id === id),
