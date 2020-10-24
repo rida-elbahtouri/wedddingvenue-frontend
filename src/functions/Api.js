@@ -6,9 +6,9 @@ export const GetVenuesApi = () => {
   return Axios.get(`${baseUrl}/weddingvenues`);
 };
 
-export const AddTofavourite = (UserID, VenueId) => {
+export const AddTofavourite = (token, VenueId) => {
     Axios.post(`${baseUrl}/favourites`, {
-      user_id: UserID,
+      token: token,
       weddingvenue_id: VenueId,
     });
   };

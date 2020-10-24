@@ -9,9 +9,9 @@ const VenuesReducer = (state = [], action) => {
   }
 };
 
-const UserReducer = (state = 0, action) => {
+const UserReducer = (state ='', action) => {
   switch (action.type) {
-    case 'GETUSERID':
+    case 'GETUSERTOKEN':
       return action.payload;
     default:
       return state;
@@ -35,7 +35,7 @@ const ErrorsReducer = (state = '', action) => {
 };
 const rootReducer = combineReducers({
   venues: VenuesReducer,
-  user_id: UserReducer,
+  token: UserReducer,
   venue_details: DetReducer,
   errors: ErrorsReducer,
 });

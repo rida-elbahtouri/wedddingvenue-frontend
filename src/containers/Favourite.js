@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Getvenues from '../actions';
@@ -9,7 +8,7 @@ import {GetfavouritesApi} from '../functions/Api'
 class Favourite extends Component {
     componentDidMount=() => {
       
-      GetfavouritesApi(localStorage.getItem('user_id')).then(res => {
+      GetfavouritesApi(localStorage.getItem('token')).then(res => {
         const uniq = [...new Set(res.data.map(x => x.id))].map(
           id => res.data.find(s => s.id === id),
         );
@@ -19,7 +18,7 @@ class Favourite extends Component {
     }
 
     renderHelper = () => {
-      if (!localStorage.getItem('user_id')) {
+      if (!localStorage.getItem('token')) {
         return <Redirect to="/signup" />;
       }
       let result = null;

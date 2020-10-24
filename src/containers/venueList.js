@@ -16,7 +16,7 @@ class VenueList extends Component {
     }
 
     renderHelper = () => {
-      if (!localStorage.getItem('user_id')) {
+      if (!localStorage.getItem('token')) {
         return <Redirect to="/signup" />;
       }
 

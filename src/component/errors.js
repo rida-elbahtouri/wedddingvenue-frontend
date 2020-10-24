@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Errors = ({ msg }) => (
+const MyErrors = ({ msg }) => (
   <div className="error-cont">
     <p className="error">{msg}</p>
   </div>
 );
-Errors.propTypes = {
+MyErrors.propTypes = {
 
   msg: PropTypes.string.isRequired,
 
 };
-export default Errors;
+export default MyErrors;

@@ -3,9 +3,9 @@ const Getvenues = data => ({
   payload: data,
 });
 
-export const UserID = userid => ({
-  type: 'GETUSERID',
-  payload: userid,
+export const UserToken = token => ({
+  type: 'GETUSERTOKEN',
+  payload: token,
 });
 
 export const GetDetails = det => ({

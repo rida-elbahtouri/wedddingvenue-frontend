@@ -4,25 +4,27 @@ import { connect } from 'react-redux';
 import { Redirect, Link } from 'react-router-dom';
 
 import PropTypes from 'prop-types';
-import { UserID, Errors } from '../actions';
+import { UserToken, Errors } from '../actions';
 import '../assets/styles/auth.css';
 
 const Login = props => {
-  if (localStorage.getItem('user_id')) {
+  if (localStorage.getItem('token')) {
     return <Redirect to="/" />;
   }
   const login = () => {
     const username = document.getElementById('username');
+    const password = document.getElementById('password');
+
     Axios.post('https://mighty-headland-70407.herokuapp.com/logs', {
       username: username.value,
+      password:password.value
     })
       .then(response => {// eslint-disable-line
-        if (response.data.id) {
-          localStorage.setItem('user_id', response.data.id);
-          props.UserID(parseInt(response.data.id, 10));
-          return <Redirect to="/" />;
+        if (response.data.token) {
+          localStorage.setItem('token', response.data.token);
+          props.UserToken(response.data.token);
         }
-        props.Errors(response.data);
+        props.Errors(response.data.error[0]);
       }).catch(err => err);
   };
   return (
@@ -32,6 +34,8 @@ const Login = props => {
         <p>Helle there! Sign in and start exploring your future venues</p>
         <form>
           <input placeholder="username" id="username" type="text" />
+          <br />
+          <input placeholder="password" id="password" type="password" />
           <button className="button" onClick={login} type="button">Login</button>
         </form>
         <span className="switch">
@@ -44,11 +48,11 @@ const Login = props => {
 };
 
 const mapStateToProps = state => ({
-  user_id: state.user_id,
+  token: state.token,
 });
 const mapDispatchToProps = dispatch => ({
-  UserID: data => {
-    dispatch(UserID(data));
+  UserToken: data => {
+    dispatch(UserToken(data));
   },
   Errors: error => {
     dispatch(Errors(error));
@@ -57,6 +61,6 @@ const mapDispatchToProps = dispatch => ({
 
 Login.propTypes = {
   Errors: PropTypes.func.isRequired,
-  UserID: PropTypes.func.isRequired,
+  UserToken: PropTypes.func.isRequired,
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

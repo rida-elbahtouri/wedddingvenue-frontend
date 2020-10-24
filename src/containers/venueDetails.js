@@ -12,13 +12,13 @@ class VenueDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user_id: null,
+      token: null,
     };
   }
 
     componentDidMount=() => {
-      if (localStorage.getItem('user_id')) {
-        this.setState({ user_id: parseInt(localStorage.getItem('user_id'), 10) });
+      if (localStorage.getItem('token')) {
+        this.setState({ token: localStorage.getItem('token')});
       }
       // eslint-disable-next-line
       GetDetailsApi(this.props.match.params.id).then(res => {
@@ -28,7 +28,7 @@ class VenueDetails extends Component {
     }
 
      renderHelper=() => { // eslint-disable-line
-       if (!localStorage.getItem('user_id')) {
+       if (!localStorage.getItem('token')) {
          return <Redirect to="/signup" />;
        }
        const { venueDetails } = this.props;
