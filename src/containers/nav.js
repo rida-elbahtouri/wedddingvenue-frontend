@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { UserToken } from '../actions';
@@ -9,9 +9,6 @@ const Nav = props => {
   if (localStorage.getItem('tokend')) {
     const { UserToken } = props;
     UserToken(localStorage.getItem('token'));
-  }
-  if (!props.token) { // eslint-disable-line
-    return <Redirect to="/signup" />;
   }
   const logout = () => {
     localStorage.removeItem('token');
@@ -54,7 +51,7 @@ const Nav = props => {
               Favourite
             </Link>
           </li>
-          <li className="logout" onClick={logout}>Log out</li> { // eslint-disable-line
+          <li className="logout" onClick={logout}><Link onClick={close} to="signup">Log out</Link> </li> { // eslint-disable-line
           }
         </ul>
       </div>
@@ -73,6 +70,5 @@ const mapDispatchToProps = dispatch => ({
 
 Nav.propTypes = {
   UserToken: PropTypes.func.isRequired,
-  token: PropTypes.string.isRequired,
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Nav);
