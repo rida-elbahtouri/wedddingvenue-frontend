@@ -1,0 +1,26 @@
+.card {
+  border-radius: 10px;
+  box-shadow: gray 0 0 2px 2px;
+}
+
+.card img {
+  border-radius: 10px;
+  width: 100%;
+}
+
+.content {
+  padding: 0 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+a {
+  color: #6a6869;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+}
