@@ -1,4 +1,4 @@
-# FindRecipe
+# WeddingVenues
 
 This project is a React webapp that connected to a [back-end](https://github.com/rida-elbahtouri/WeddingVenues) rails app.
 the App allow user to Login and sign up with his username and password ,
