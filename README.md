@@ -14,8 +14,8 @@ explore weddingvenues and add the to favourites list.
 
 ### ScreenShot
 
-![screenshot](./src/assets/Images/Capture.PNG)
-![screenshot](./src/assets/Images/Capture2.PNG)
+![screenshot](./src/assets/images/Capture.PNG)
+![screenshot](./src/assets/images/Capture2.PNG)
 
 ## Built With
 
